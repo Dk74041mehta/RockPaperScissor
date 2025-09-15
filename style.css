@@ -1,0 +1,419 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #8cc665;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.frame {
+  width: 800px;
+  height: 500px;
+  background: #8cc665;
+  border-radius: 10px;
+  padding: 20px;
+  position: relative;
+  box-sizing: border-box;
+  text-align: center;
+  color: white;
+}
+
+
+
+/* COMMON: HEADER + SCORE   */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid white;
+  border-radius: 10px;
+  padding: 15px 25px;
+}
+
+.header h2 {
+  margin: 0;
+  color: white;
+  font-weight: bold;
+}
+
+.rpt {
+  flex: 1;
+  text-align: left;
+  margin-left: -10px;
+}
+
+.scoreboard {
+  display: flex;
+  gap: 15px;
+}
+
+.score {
+  background: white;
+  border-radius: 10px;
+  padding: 10px 25px;
+  text-align: center;
+  color: black;
+}
+
+.score h3 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.score p {
+  font-size: 28px;
+  margin: 5px 0 0;
+  font-weight: bold;
+}
+
+
+
+/* Frame-1 GAME START     */
+.triangle {
+  position: relative;
+  width: 350px;
+  height: 300px;
+  margin: 80px auto;
+}
+
+.choice {
+  width: 110px;
+  height: 110px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  position: absolute;
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.choice.rock {
+  top: 0;
+  left: 0%;
+  transform: translateX(-50%);
+  border: 10px solid #0074B6;
+}
+
+.choice.scissors {
+  top: 0;
+  right: 0;
+  border: 10px solid #BD00FF;
+}
+
+.choice.paper {
+  bottom: 0;
+  left: 23%;
+  border: 10px solid #FFA943;
+}
+
+/* Triangle lines */
+.line {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.64);
+  z-index: 0;
+  border-radius: 5px;
+}
+
+.line-1 {
+  top: 50px;
+  left: 50px;
+  width: 250px;
+  height: 16px;
+}
+
+.line-2 {
+  top: 106px;
+  right: 85px;
+  width: 16px;
+  height: 199px;
+  transform-origin: top right;
+  transform: rotate(30deg);
+}
+
+.line-3 {
+  bottom: 60px;
+  left: 90px;
+  width: 16px;
+  height: 180px;
+  transform-origin: bottom left;
+  transform: rotate(-30deg);
+}
+
+
+/* Rules Button & Box*/
+
+.rules-btn {
+  position: absolute;
+  bottom: -29px;
+  right: -265px;
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.next-btn {
+  right: -230px;
+  bottom: 10px;
+}
+
+.rules-box {
+  position: absolute;
+  bottom: 40px;
+  border: 3px solid white;
+  right: -230px;
+  background: #1b3a28;
+  color: white;
+  padding: 5px;
+  border-radius: 10px;
+  width: 211px;
+  height: 255px;
+  display: none;
+}
+
+.rules-box h4 {
+  margin-top: 15px;
+  text-align: center;
+}
+.rules-box ul {
+  padding-left: 0;
+  text-align: left;
+  list-style: square;
+  list-style: none;
+}
+
+.rules-box ul li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 12px;
+  font-size: 11px;
+  color: white;
+}
+
+.rules-box ul li::before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 6px;
+  width: 8px;
+  height: 8px;
+  background-color: #FFD600;
+}
+
+.close-btn {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  background: red;
+  border-radius: 50%;
+  border: 3px solid white;
+  width: 56px;
+  height: 43px;
+  cursor: pointer;
+}
+
+.close-btn .x {
+  color: white;
+  font-size: larger;
+  font-weight: 500;
+}
+
+
+/* Result-Frames (2,3,4)*/
+
+.result-row {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  align-items: center;
+  margin-top: 60px;
+}
+
+.choice-box {
+  text-align: center;
+}
+
+.choice-circle {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+
+
+.vs-text {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.vs-text h2 {
+  font-size: 32px;
+  margin: 0;
+}
+
+.vs-text h3 {
+  font-size: 19px;
+  margin: 5px 0 0;
+}
+
+
+/* winner Glow Animation */
+
+.winner-glow {
+  position: relative;
+  z-index: 1;
+}
+
+.winner-glow::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  box-shadow:
+    0 0 0 12px rgba(29, 168, 43, 0.79),
+    0 0 0 28px rgba(2, 117, 2, 0.7);
+  animation: rippleOutline 2s infinite ease-out;
+}
+
+@keyframes rippleOutline {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.4);
+  }
+}
+
+
+
+/* Frame-5 Hurray*/
+
+.hurray-wrapper {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  margin: 0 auto 20px;
+}
+
+.trophy {
+  width: 200px;
+  height: 201px;
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  top: 50px;
+}
+
+.star {
+  position: absolute;
+}
+
+.star-1 { top: 69px; left: -58%; }
+.star-2 { top: -44px; left: 71%; }
+.star-3 { top: -40px; left: 2%; }
+.star-4 { top: 6px; left: 30%; }
+.star-5 { top: 206px; left: -7%; }
+.star-6 { top: 113px; left: 100%; }
+.star-7 { top: 44px; left: 125%; }
+.star-9 { top: -15px; left: -20%; transform: translateX(-50%); }
+
+
+.final-huraay {
+  width: 468px;
+  font-size: 68px;
+  font-weight: bold;
+  margin: 5px auto 2px;  /* gap kam kiya (top 5px, bottom 2px) */
+  line-height: 86px;
+  text-align: center;
+  height: 86px;
+}
+
+.final-line {
+  width: 457px;
+  font-size: 31px;
+  margin: 2px auto 15px;  /* gap kam kiya (top 2px, bottom 15px) */
+  line-height: 47px;
+  text-align: center;
+  height: 47px;
+}
+
+
+/* Common Button Style*/
+
+button {
+  margin: 15px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: white;
+  color: black;
+  cursor:pointer;
+} 
+
+.play-btn {
+  margin-top: -30px;
+  margin-bottom: 10px;
+  width: 127px;
+  font-size: 15px;
+  padding: 8px 24px;
+  background: white;
+  color: black;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+
+
+/*Frame-2 Rules & Next Button Position*/
+
+#frame-2 .frame-2-buttons {
+  position: absolute;
+  bottom: -37px;
+  left: 850px;
+  display: flex;
+  gap: 18px;
+  z-index: 10;
+}
+
+#frame-2 .frame-2-buttons .rules-btn,
+#frame-2 .frame-2-buttons .next-btn {
+  position: static;
+  margin: 0;
+  padding: 7px 20px;;
+  border: 2px solid white;
+  background: transparent;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
